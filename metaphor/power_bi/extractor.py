@@ -547,7 +547,7 @@ class PowerBIExtractor(BaseExtractor):
 
     @staticmethod
     def _get_workspace_hierarchy(workspace: WorkspaceInfo) -> List[str]:
-        return (workspace.name or "").split(".")
+        return [workspace.name] if workspace.name else []
 
     @staticmethod
     def _find_last_completed_refresh(
